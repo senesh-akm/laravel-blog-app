@@ -16,14 +16,8 @@ To perform the steps you've listed, here's what you generally need to do:
 
 - Copy the `.env.example` file to `.env` and update your environment variables, especially the database configuration:
   ```bash
-  DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=laravel_blog_app
-DB_USERNAME=root
-DB_PASSWORD=
+  DB_CONNECTION=mysql DB_HOST=127.0.0.1 DB_PORT=3306 DB_DATABASE=laravel_blog_app DB_USERNAME=root DB_PASSWORD=
   ```
-
 - Generate an application key:
   ```bash
   php artisan key:generate
