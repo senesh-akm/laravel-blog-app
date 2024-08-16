@@ -5,7 +5,7 @@ To perform the steps you've listed, here's what you generally need to do:
 ### 1. Clone the GitHub Project
 - Open a terminal and run the following command to clone the repository:
   ```bash
-  git clone <https://github.com/senesh-akm/laravel-blog-app.git>
+  git clone https://github.com/senesh-akm/laravel-blog-app.git
   ```
 
 ### 2. Open the Project and Migrate the Database
@@ -16,7 +16,12 @@ To perform the steps you've listed, here's what you generally need to do:
 
 - Copy the `.env.example` file to `.env` and update your environment variables, especially the database configuration:
   ```bash
-  DB_CONNECTION=mysql<br>DB_HOST=127.0.0.1<br>DB_PORT=3306<br>DB_DATABASE=laravel_blog_app<br>DB_USERNAME=root DB_PASSWORD=
+  DB_CONNECTION=mysql
+  DB_HOST=127.0.0.1
+  DB_PORT=3306
+  DB_DATABASE=laravel_blog_app
+  DB_USERNAME=root
+  DB_PASSWORD=
   ```
 - Generate an application key:
   ```bash
