@@ -36,7 +36,7 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required|string',
-            'image' => 'nullable|image|max:2048',
+            'image' => 'nullable|image|max:20480',
         ]);
 
         $imagePath = null;
@@ -47,5 +47,16 @@ class PostController extends Controller
         $this->postService->createPost($request->title, $request->content, $imagePath);
 
         return redirect()->route('posts.index');
+    }
+
+    public function show($id)
+    {
+        $post = $this->postService->getPostById($id);
+
+        if (!$post) {
+            abort(404); // Post not found
+        }
+
+        return view('posts.view', compact('post'));
     }
 }

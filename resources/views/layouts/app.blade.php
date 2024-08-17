@@ -14,9 +14,6 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-        <!-- Dropzone -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/min/dropzone.min.css" integrity="sha512-1R8kszI9S7BD1wYd8urxdtQzmfgCFedFw3KmI/7n+dDPASWXUKF/CZl8ghlFxxULDFpU1ZblOa7w/Jkl1YJwMg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/min/dropzone.min.js" integrity="sha512-EmzxkJoRg7zP0r1DRpsf5M7ymZSR4SKp7iTHsLC7q6dcO8nD7cbyJ2mZxMUlly3ZXDzRrLLdjiCZ19BhbNwEYg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
