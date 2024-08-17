@@ -33,7 +33,13 @@ To perform the steps you've listed, here's what you generally need to do:
   php artisan migrate
   ```
 
-### 3. Run the Node
+### 3. Display Images
+- Verify the storage link to ensure that the uploaded image is saved correctly.
+  ```bash
+  php artisan storage:link
+  ```
+
+### 4. Run the Node
 - If the project uses Node.js, navigate to the project’s root directory and install the required Node packages:
   ```bash
   npm install
@@ -44,14 +50,14 @@ To perform the steps you've listed, here's what you generally need to do:
   npm run dev
   ```
 
-### 4. Run the Laravel Project
+### 5. Run the Laravel Project
 - Start the Laravel development server:
   ```bash
   php artisan serve
   ```
 - This will start the project at `http://127.0.0.1:8000` by default.
 
-### 5. Run the Tests
+### 6. Run the Tests
 - Run the test cases using PHPUnit:
   ```bash
   php artisan test
