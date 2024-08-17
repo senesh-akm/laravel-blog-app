@@ -18,6 +18,12 @@
                 </div>
             </div>
 
+            <div class="hidden sm:flex sm:items-center sm:ml-6">
+                <x-nav-link :href="route('posts.create')" :active="request()->routeIs('posts.create')">
+                    {{ __('Create Post') }}
+                </x-nav-link>
+            </div>
+
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <x-dropdown align="right" width="48">
