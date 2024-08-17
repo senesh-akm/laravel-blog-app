@@ -8,10 +8,10 @@
                         @foreach($posts as $post)
                             <div class="bg-gray-100 p-4 rounded-lg shadow-md">
                                 <a href="{{ route('posts.show', $post->id) }}">
-                                    <h4 class="text-xl font-semibold">{{ $post->title }}</h4>
                                     @if($post->image)
                                         <img src="{{ asset('storage/'.$post->image) }}" alt="{{ $post->title }}" class="mt-2 rounded-md" style="max-width: 100%;">
                                     @endif
+                                    <h4 class="text-xl font-semibold mt-3">{{ $post->title }}</h4>
                                 </a>
                             </div>
                         @endforeach
