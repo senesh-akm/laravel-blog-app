@@ -17,13 +17,13 @@ class PostController extends Controller
 
     public function index()
     {
-        $posts = $this->postService->getAllPosts();
+        $posts = Post::orderBy('created_at', 'desc')->get();
         return view('dashboard', compact('posts'));
     }
 
     public function dashboard()
     {
-        $posts = $this->postService->getAllPosts();
+        $posts = Post::orderBy('created_at', 'desc')->get();
         return view('dashboard', compact('posts'));
     }
 
