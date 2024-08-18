@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Application\Posts\PostService;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -33,18 +34,17 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'title' => 'required|string|max:255',
-            'content' => 'required|string',
+            'text' => 'required|string',
             'image' => 'nullable|image|max:20480',
         ]);
 
-        $imagePath = null;
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('images', 'public');
+            $validated['image'] = $request->file('image')->store('images', 'public');
         }
 
-        $this->postService->createPost($request->title, $request->content, $imagePath);
+        Post::create($validated);
 
         return redirect()->route('posts.index');
     }

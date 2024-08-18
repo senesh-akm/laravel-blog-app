@@ -27,20 +27,23 @@ class PostTest extends TestCase
         // Fake storage for image uploads
         Storage::fake('public');
 
+        // Create a fake image file
+        $image = UploadedFile::fake()->image('post.jpg');
+
         $response = $this->post(route('posts.store'), [
             'title' => 'Test Post',
             'text' => 'This is a test post.',
-            'image' => UploadedFile::fake()->image('post.jpg')
+            'image' => $image,
         ]);
 
-        // Assert the post was stored
+        // Assert the post was stored in the database
         $this->assertDatabaseHas('posts', [
             'title' => 'Test Post',
             'text' => 'This is a test post.',
         ]);
 
-        // Assert the image was stored
-        Storage::disk('public')->assertExists('images/post.jpg');
+        // Assert the image was stored in the correct path
+        Storage::disk('public')->assertExists('images/' . $image->hashName());
 
         // Assert the user is redirected to the posts index
         $response->assertRedirect(route('posts.index'));
