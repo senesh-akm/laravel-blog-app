@@ -34,19 +34,27 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
+        // Validate the request data
         $validated = $request->validate([
             'title' => 'required|string|max:255',
-            'text' => 'required|string',
+            'text' => 'required|string',  // This must match the field name in the migration
             'image' => 'nullable|image|max:20480',
         ]);
 
+        // Handle the image upload
         if ($request->hasFile('image')) {
             $validated['image'] = $request->file('image')->store('images', 'public');
         }
 
-        Post::create($validated);
+        // Store the post
+        Post::create([
+            'title' => $validated['title'],
+            'text' => $validated['text'],  // Ensure this field is correctly referenced
+            'image' => $validated['image'] ?? null,
+        ]);
 
-        return redirect()->route('posts.index');
+        // Redirect to the posts index page
+        return redirect()->route('posts.index')->with('success', 'Post created successfully!');
     }
 
     public function show($id)
